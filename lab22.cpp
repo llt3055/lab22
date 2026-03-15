@@ -49,16 +49,13 @@ public:
         if (tail) {
            head->next = nullptr;
         } else {
-           tail->next = nullptr;
+           head = nullptr;
         }
 
         delete temp;
     }
 
     void delete_pos(int position) {
-        
-
-        Node* temp = head;
 
         if (!head || position < 0) return;
 
@@ -67,6 +64,7 @@ public:
             return;
         }
         
+        Node* temp = head;
         for (int i = 0; i < position && temp; i++) {
             temp = temp->next;
         }
@@ -195,6 +193,7 @@ public:
 
 // Driver program
 int main() {
+    srand(time(0));
     DoublyLinkedList list;
     int size = rand() % (MAX_LS-MIN_LS+1) + MIN_LS;
 
