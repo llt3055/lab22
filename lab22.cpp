@@ -41,7 +41,8 @@ public:
     }
 
     void pop_back(){
-
+        if (!tail) return;
+        
         Node* temp = tail;
         tail = tail->prev;
 
