@@ -185,7 +185,7 @@ int main() {
     int size = rand() % (MAX_LS-MIN_LS+1) + MIN_LS;
 
     for (int i = 0; i < size; ++i)
-        list.push_back(rand() % (MAX_NR-MIN_NR+1) + MIN_NR);
+    list.push_back(rand() % (MAX_NR-MIN_NR+1) + MIN_NR);
     cout << "List forward: ";
     list.print();
 
@@ -197,5 +197,21 @@ int main() {
     cout << "List forward: ";
     list.print();
 
+    cout << "Testing pop_front (deleting head):" << endl;
+    list.pop_front();
+    list.print();
+
+    cout << "Testing pop_back (deleting tail):" << endl;
+    list.pop_back();
+    list.print();
+
+    cout << "Testing delete_pos at index 1 (the 2nd element):" << endl;
+    list.delete_pos(1);
+    list.print();
+
+    cout << "Testing delete_val (if list not empty):" << endl;
+    list.delete_val(0); 
+    list.print();
+    
     return 0;
 }
