@@ -25,13 +25,18 @@ public:
     DoublyLinkedList() { head = nullptr; tail = nullptr; }
 
     void pop_front(){
+
+        if (!head) return; 
+
+        Node* temp = head;
+        head = head->next;
+
         if (head) {
             head->prev = nullptr;
         } else {
-            Node* temp = head;
-            head = head->next;
             tail = nullptr; 
         }
+
         delete temp;
     }
 
@@ -212,6 +217,6 @@ int main() {
     cout << "Testing delete_val (if list not empty):" << endl;
     list.delete_val(0); 
     list.print();
-    
+
     return 0;
 }
