@@ -35,8 +35,18 @@ public:
         delete temp;
     }
 
-    viod pop_back(){
+    void pop_back(){
 
+        Node* temp = tail;
+        tail = tail->prev;
+
+        if (tail) {
+           head->next = nullptr;
+        } else {
+           tail->next = nullptr;
+        }
+
+        delete temp;
     }
 
     void delete_pos(int position) {
