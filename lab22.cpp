@@ -42,7 +42,7 @@ public:
 
     void pop_back(){
         if (!tail) return;
-        
+
         Node* temp = tail;
         tail = tail->prev;
 
@@ -59,6 +59,14 @@ public:
         
 
         Node* temp = head;
+
+        if (!head || position < 0) return;
+
+        if (position == 0) {
+            pop_front();
+            return;
+        }
+        
         for (int i = 0; i < position && temp; i++) {
             temp = temp->next;
         }
