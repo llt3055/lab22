@@ -25,9 +25,24 @@ public:
     DoublyLinkedList() { head = nullptr; tail = nullptr; }
 
     void pop_front(){
+        if (head) {
+            head->prev = nullptr;
+        } else {
+            Node* temp = head;
+            head = head->next;
+            tail = nullptr; 
+        }
+        delete temp;
+    }
+
+    viod pop_back(){
 
     }
-    
+
+    void delete_pos(int position) {
+       
+    } 
+
     void push_back(int value) {
         Node* newNode = new Node(value);
         if (!tail)  // if there's no tail, the list is empty
