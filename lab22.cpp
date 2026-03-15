@@ -50,7 +50,27 @@ public:
     }
 
     void delete_pos(int position) {
-       
+        
+
+        Node* temp = head;
+        for (int i = 0; i < position && temp; i++) {
+            temp = temp->next;
+        }
+
+        if (!temp) {
+            cout << "Position out of bounds." << endl;
+            return;
+        }
+
+        if (temp == tail) {
+            pop_back();
+            return;
+        }
+
+     
+        temp->prev->next = temp->next;
+        temp->next->prev = temp->prev;
+        delete temp;
     } 
 
     void push_back(int value) {
@@ -106,7 +126,7 @@ public:
         temp->next = newNode;
     }
 
-    void delete_node(int value) {
+    void delete_val(int value) {
         if (!head) return; // Empty list
 
         Node* temp = head;
